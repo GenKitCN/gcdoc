@@ -1,7 +1,7 @@
 ---
 id: quick-start
 title: 快速开始
-sidebar_label: 关于GenKit和Grasscutter
+sidebar_label: 快速开始
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
