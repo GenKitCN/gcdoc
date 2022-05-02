@@ -32,15 +32,15 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '文档',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/doc1',
+              label: '关于',
+              to: 'docs/about',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2',
+              label: '快速上手',
+              to: 'docs/quick-start',
             },
           ],
         },
