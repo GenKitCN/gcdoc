@@ -1,7 +1,7 @@
 ---
-id: doc1
-title: Style Guide
-sidebar_label: Style Guide
+id: quick-start
+title: 快速开始
+sidebar_label: 关于GenKit和Grasscutter
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
@@ -89,7 +89,7 @@ Inline-style: ![alt text](https://github.com/adam-p/markdown-here/raw/master/src
 
 Reference-style: ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
 ---
 

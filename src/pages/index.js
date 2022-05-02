@@ -8,35 +8,32 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: <>Easy to Use</>,
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: <>简单易用</>,
+    imageUrl: 'img/click-svgrepo-com.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        提供多平台的一键安装方案
       </>
     ),
   },
   {
-    title: <>Focus on What Matters</>,
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: <>国人友好</>,
+    imageUrl: 'img/translate-language-svgrepo-com.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        汉化大部分控制台内容
       </>
     ),
   },
   {
-    title: <>Powered by React</>,
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: <>热心群友</>,
+    imageUrl: 'img/comment-discussion-svgrepo-com.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        全天候答疑解惑  <del>弱智问题除外</del>
       </>
     ),
-  },
+  }
 ];
 
 function Feature({imageUrl, title, description}) {
