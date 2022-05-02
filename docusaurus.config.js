@@ -1,17 +1,17 @@
 module.exports = {
-  title: 'Grasscutter文档',
-  tagline: 'Guide to the use of grasscutter',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'GenKit 文档',
+  tagline: 'GenKit 群组文档',
+  url: 'https://genkit.vercel.app/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'GenKit', // Usually your GitHub org/user name.
+  projectName: 'GenKit', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'GenKit',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'GenKit',
+        src: 'https://svgsilh.com/svg/155231.svg',
       },
       items: [
         {
@@ -48,17 +48,17 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'TG 发布频道',
+              href: 'https://t.me/genkitCN',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'TG 讨论组',
+              href: 'https://t.me/genkitCN_chat',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+              label: 'TG 讨论组(人多|临时)',
+              href: 'https://t.me/genshinhelper',
+            }
           ],
         },
         {
@@ -68,14 +68,10 @@ module.exports = {
               label: 'Blog',
               to: 'blog',
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} GenKit, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
