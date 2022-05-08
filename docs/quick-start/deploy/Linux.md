@@ -1,6 +1,6 @@
 ---
 id: deploy_linux
-title: 在Linux上部署
+title: 在 Linux 上部署
 sidebar_label: Linux
 ---
 

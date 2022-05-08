@@ -1,6 +1,6 @@
 ---
 id: deploy_windows
-title: 在Windows上部署
+title: 在 Windows 上部署
 sidebar_label: Windows
 ---
 

@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'GenKit Wiki',
   tagline: 'Grasscutter CN Wiki',
-  url: 'https://genkit.vercel.app',
+  url: 'https://genkit.mhysb.xyz',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -37,14 +37,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Wansn-w/gcdoc/tree/main/docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Wansn-w/gcdoc/tree/main/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
@@ -103,15 +103,15 @@ const config = {
             title: '交流',
             items: [
               {
-                label: 'TG 发布频道',
+                label: 'Telegram 发布频道',
                 href: 'https://t.me/genkitCN',
               },
               {
-                label: 'TG 讨论组',
+                label: 'Telegram 讨论组',
                 href: 'https://t.me/genkitCN_chat',
               },
               {
-                label: 'TG 讨论组(人多|临时)',
+                label: 'Telegram 讨论组(人多|临时)',
                 href: 'https://t.me/genshinhelper',
               }
             ],
@@ -124,7 +124,7 @@ const config = {
                 to: '/blog',
               },
               {
-                label: 'GitHub',
+                label: 'Grasscutter GitHub',
                 href: 'https://github.com/Grasscutters/Grasscutter',
               },
             ],
