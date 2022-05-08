@@ -207,6 +207,6 @@ OS:           Linux 4.19.226-IllusionX+ aarch64
 
 🔗 原文由 [@feb_6th](https://t.me/feb_6th) 与 [@chitang233](https://t.me/chitang233) 发布在 [Chi_Tang's Blog](https://www.chitang.tech/posts/grasscutter-android.md)
 
-使用 CC BY-SA 4.0 协议共享
+使用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 协议共享
 
 :::
