@@ -1,7 +1,6 @@
 ---
-id: about
-title: 关于 GenKit 和 Grasscutter
-sidebar_label: 关于
+title: 🏷️ 关于  GenKit  和  Grasscutter
+sidebar_label: "🏷️ 关于"
 ---
 
 > 所谓薙刀，乃是斩除芜杂之利器。
