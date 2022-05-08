@@ -190,17 +190,26 @@ export default function Artifacts() {
     };
     return (
         <Layout>
-            <Container>
+            <Container sx={{
+                padding: {
+                    xs: '5%',
+                    sm: '10%'
+                }
+            }}>
                 <Paper
                     sx={{
                         p: 2,
                         margin: 'auto',
                         maxWidth: 1000,
-                        flexGrow: 1
+                        flexGrow: 1,
+                        background: "rgb(240, 240, 240)"
                     }}
                 >
-                    <Grid container spacing={2}>
-                        <Grid item container xs={5}>
+                    <Grid container spacing={2} columns={{
+                        xs: 1,
+                        sm: 2
+                    }}>
+                        <Grid item container xs={12} sm={5}>
                             <Grid item container>
                                 <Grid item xs={10}>
                                     <TextField
@@ -220,8 +229,7 @@ export default function Artifacts() {
                                             step: 1,
                                             min: 0,
                                             max: 20,
-                                            type: 'number',
-                                            'aria-labelledby': 'input-slider',
+                                            type: 'number'
                                         }}
                                     />
                                 </Grid>
@@ -248,7 +256,7 @@ export default function Artifacts() {
                                                                     variant="outlined"/>}
                             />
                         </Grid>
-                        <Grid item container xs={7}>
+                        <Grid item container xs={12} sm={7}>
                             <List
                                 sx={{
                                     width: 'inherit',

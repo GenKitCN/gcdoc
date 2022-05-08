@@ -70,6 +70,7 @@ const config = {
             label: '文档',
           },
           {to: '/artifact', label: '圣遗物在线生成', position: 'left'},
+          {to: '/auth', label: 'GCAuth', position: 'left'},
           {to: '/blog', label: '博客', position: 'left'},
           {
             href: 'https://t.me/genkitCN_chat',
