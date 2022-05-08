@@ -1,6 +1,6 @@
 ---
-id: deploy_termux_root
-title: "[root] 在 Termux 上部署"
+id: deploy_linuxdeploy_root
+title: "[root] 在 Linux Deploy 上部署"
 sidebar_label: 使用 Root
 ---
 
