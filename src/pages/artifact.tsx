@@ -1,5 +1,10 @@
 import {useCallback, useEffect, useState} from "react";
-import ReliquaryDataProvider, {IReliquary, IReliquaryAffixItem, IReliquaryAffix, IReliquaryMain} from "../components/providers/Artifacts";
+import ReliquaryDataProvider, {
+    IReliquary,
+    IReliquaryAffixItem,
+    IReliquaryAffix,
+    IReliquaryMain
+} from "../components/providers/Artifacts";
 import {
     Autocomplete,
     Checkbox,
@@ -43,7 +48,7 @@ export default function Artifacts() {
 
     const [artifactData, setArtifactData] = useState<IOption[]>([]);
     const [artifactMains, setArtifactMains] = useState<IOption[]>([]);
-    const [artifactAffixes, setArtifactAffixes] = useState<{[key:string]:IAffixOpt[]}>({});
+    const [artifactAffixes, setArtifactAffixes] = useState<{ [key: string]: IAffixOpt[] }>({});
     const [generatedArtifact, setGeneratedArtifact] = useState("/giveart ");
 
     const [TextMap, setTextMap] = useState({});
@@ -86,7 +91,7 @@ export default function Artifacts() {
     useEffect(() => {
         const dataArtifact: IOption[] = [];
         const dataMainAttrs: IOption[] = [];
-        const dataAffixes: {[key:string]:IAffixOpt[]} = {}
+        const dataAffixes: { [key: string]: IAffixOpt[] } = {}
         const initReliquaryData = async () => {
             await ReliquaryDataProvider.init();
             setReliquary(ReliquaryDataProvider.getReliquary());
@@ -120,7 +125,13 @@ export default function Artifacts() {
                         if (Object.keys(dataAffixes).indexOf(name) == -1) {
                             dataAffixes[name] = [];
                         }
-                        dataAffixes[name].push({id: id, name: name, index: index, value: value, displayValue: displayValue})
+                        dataAffixes[name].push({
+                            id: id,
+                            name: name,
+                            index: index,
+                            value: value,
+                            displayValue: displayValue
+                        })
                     });
                 });
                 setArtifactData(dataArtifact);
@@ -191,7 +202,7 @@ export default function Artifacts() {
     };
     return (
         <BrowserOnly>
-            <Layout>
+            {() => <Layout>
                 <Container sx={{
                     padding: {
                         xs: '5%',
@@ -226,7 +237,7 @@ export default function Artifacts() {
                                         <Input
                                             value={artifactEnhancements}
                                             size="small"
-                                            onChange={(e)=>setArtifactEnhancements(Number(e.currentTarget.value))}
+                                            onChange={(e) => setArtifactEnhancements(Number(e.currentTarget.value))}
                                             inputProps={{
                                                 step: 1,
                                                 min: 0,
@@ -266,9 +277,9 @@ export default function Artifacts() {
                                         position: 'relative',
                                         overflow: 'auto',
                                         maxHeight: 300,
-                                        '& ul': { padding: 0 },
+                                        '& ul': {padding: 0},
                                     }}
-                                    subheader={<li />}
+                                    subheader={<li/>}
                                 >
                                     {Object.keys(artifactAffixes).map((key, index) => (
                                         <li key={index}>
@@ -280,14 +291,14 @@ export default function Artifacts() {
                                                                 <FormControlLabel
                                                                     control={<Checkbox
                                                                         value={affix.id}
-                                                                        id={"select-"+affix.id}
-                                                                        onChange={(e)=>handleAffixSelected(e,false,0)}
+                                                                        id={"select-" + affix.id}
+                                                                        onChange={(e) => handleAffixSelected(e, false, 0)}
                                                                     />}
-                                                                    label={`${affix.name} - ${affix.displayValue}`} />
+                                                                    label={`${affix.name} - ${affix.displayValue}`}/>
                                                                 <Input
-                                                                    value={Object.keys(selectedAffixesAmount).indexOf(String(affix.id)) != -1? selectedAffixesAmount[affix.id]:1}
+                                                                    value={Object.keys(selectedAffixesAmount).indexOf(String(affix.id)) != -1 ? selectedAffixesAmount[affix.id] : 1}
                                                                     size="small"
-                                                                    onChange={(e)=>handleAffixSelected(e,true, affix.id)}
+                                                                    onChange={(e) => handleAffixSelected(e, true, affix.id)}
                                                                     inputProps={{
                                                                         step: 1,
                                                                         min: 1,
@@ -309,7 +320,7 @@ export default function Artifacts() {
                         </Grid>
                     </Paper>
                 </Container>
-            </Layout>
+            </Layout>}
         </BrowserOnly>
     );
 }
