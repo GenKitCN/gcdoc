@@ -1,6 +1,6 @@
 ---
 id: about
-title: 关于GenKit和Grasscutter
+title: 关于 GenKit 和 Grasscutter
 sidebar_label: 关于
 ---
 
