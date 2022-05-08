@@ -1,7 +1,7 @@
 ---
 id: deploy_macos
-title: 在MacOS上部署
-sidebar_label: MacOS
+title: 在 macOS 上部署
+sidebar_label: macOS
 ---
 
 > **前置**
