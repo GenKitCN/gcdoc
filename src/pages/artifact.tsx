@@ -1,10 +1,5 @@
 import {useCallback, useEffect, useState} from "react";
-import ReliquaryDataProvider, {
-    IReliquary,
-    IReliquaryAffixItem,
-    IReliquaryAffix,
-    IReliquaryMain
-} from "../components/providers/Artifacts";
+import ReliquaryDataProvider, {IReliquary, IReliquaryAffixItem, IReliquaryAffix, IReliquaryMain} from "../components/providers/Artifacts";
 import {
     Autocomplete,
     Checkbox,
@@ -20,7 +15,6 @@ import {
 import _ from "lodash";
 import * as React from "react";
 import Layout from "@theme/Layout";
-import BrowserOnly from '@docusaurus/BrowserOnly';
 
 interface IOption {
     id: number;
@@ -48,7 +42,7 @@ export default function Artifacts() {
 
     const [artifactData, setArtifactData] = useState<IOption[]>([]);
     const [artifactMains, setArtifactMains] = useState<IOption[]>([]);
-    const [artifactAffixes, setArtifactAffixes] = useState<{ [key: string]: IAffixOpt[] }>({});
+    const [artifactAffixes, setArtifactAffixes] = useState<{[key:string]:IAffixOpt[]}>({});
     const [generatedArtifact, setGeneratedArtifact] = useState("/giveart ");
 
     const [TextMap, setTextMap] = useState({});
@@ -91,7 +85,7 @@ export default function Artifacts() {
     useEffect(() => {
         const dataArtifact: IOption[] = [];
         const dataMainAttrs: IOption[] = [];
-        const dataAffixes: { [key: string]: IAffixOpt[] } = {}
+        const dataAffixes: {[key:string]:IAffixOpt[]} = {}
         const initReliquaryData = async () => {
             await ReliquaryDataProvider.init();
             setReliquary(ReliquaryDataProvider.getReliquary());
@@ -125,13 +119,7 @@ export default function Artifacts() {
                         if (Object.keys(dataAffixes).indexOf(name) == -1) {
                             dataAffixes[name] = [];
                         }
-                        dataAffixes[name].push({
-                            id: id,
-                            name: name,
-                            index: index,
-                            value: value,
-                            displayValue: displayValue
-                        })
+                        dataAffixes[name].push({id: id, name: name, index: index, value: value, displayValue: displayValue})
                     });
                 });
                 setArtifactData(dataArtifact);
@@ -201,126 +189,124 @@ export default function Artifacts() {
         setGeneratedArtifact(generated);
     };
     return (
-        <BrowserOnly>
-            {() => <Layout>
-                <Container sx={{
-                    padding: {
-                        xs: '5%',
-                        sm: '10%'
-                    }
-                }}>
-                    <Paper
-                        sx={{
-                            p: 2,
-                            margin: 'auto',
-                            maxWidth: 1000,
-                            flexGrow: 1,
-                            background: "rgb(240, 240, 240)"
-                        }}
-                    >
-                        <Grid container spacing={2} columns={{
-                            xs: 1,
-                            sm: 2
-                        }}>
-                            <Grid item container xs={12} sm={5}>
-                                <Grid item container>
-                                    <Grid item xs={10}>
-                                        <TextField
-                                            required
-                                            id="outlined-required"
-                                            label="UID"
-                                            defaultValue="10001"
-                                            onChange={(event) => setUid(parseInt(event.target.value))}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={2}>
-                                        <Input
-                                            value={artifactEnhancements}
-                                            size="small"
-                                            onChange={(e) => setArtifactEnhancements(Number(e.currentTarget.value))}
-                                            inputProps={{
-                                                step: 1,
-                                                min: 0,
-                                                max: 20,
-                                                type: 'number'
-                                            }}
-                                        />
-                                    </Grid>
+        <Layout>
+            <Container sx={{
+                padding: {
+                    xs: '5%',
+                    sm: '10%'
+                }
+            }}>
+                <Paper
+                    sx={{
+                        p: 2,
+                        margin: 'auto',
+                        maxWidth: 1000,
+                        flexGrow: 1,
+                        background: "rgb(240, 240, 240)"
+                    }}
+                >
+                    <Grid container spacing={2} columns={{
+                        xs: 1,
+                        sm: 2
+                    }}>
+                        <Grid item container xs={12} sm={5}>
+                            <Grid item container>
+                                <Grid item xs={10}>
+                                    <TextField
+                                        required
+                                        id="outlined-required"
+                                        label="UID"
+                                        defaultValue="10001"
+                                        onChange={(event) => setUid(parseInt(event.target.value))}
+                                    />
                                 </Grid>
-                                <Autocomplete
-                                    aria-label="Artifact Name" id="ArtifactName"
-                                    options={artifactData}
-                                    sx={{
-                                        width: "inherit"
-                                    }}
-                                    getOptionLabel={(option) => option.name}
-                                    onChange={handleArtifactChange}
-                                    renderInput={(params) => <TextField {...params} label="圣遗物名" variant="outlined"/>}
-                                />
-                                <Autocomplete
-                                    aria-label="Artifact Main Stats" id="ArtifactMainStats"
-                                    options={artifactMains}
-                                    sx={{
-                                        width: "inherit"
-                                    }}
-                                    getOptionLabel={(option) => option.name}
-                                    onChange={handleMainStatChange}
-                                    renderInput={(params) => <TextField {...params} label="主属性"
-                                                                        variant="outlined"/>}
-                                />
+                                <Grid item xs={2}>
+                                    <Input
+                                        value={artifactEnhancements}
+                                        size="small"
+                                        onChange={(e)=>setArtifactEnhancements(Number(e.currentTarget.value))}
+                                        inputProps={{
+                                            step: 1,
+                                            min: 0,
+                                            max: 20,
+                                            type: 'number'
+                                        }}
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid item container xs={12} sm={7}>
-                                <List
-                                    sx={{
-                                        width: 'inherit',
-                                        bgcolor: 'background.paper',
-                                        position: 'relative',
-                                        overflow: 'auto',
-                                        maxHeight: 300,
-                                        '& ul': {padding: 0},
-                                    }}
-                                    subheader={<li/>}
-                                >
-                                    {Object.keys(artifactAffixes).map((key, index) => (
-                                        <li key={index}>
-                                            <ul>
-                                                <ListSubheader>{key}</ListSubheader>
-                                                {
-                                                    artifactAffixes[key].map((affix, rIndex) => (
-                                                            <ListItemButton key={affix.index}>
-                                                                <FormControlLabel
-                                                                    control={<Checkbox
-                                                                        value={affix.id}
-                                                                        id={"select-" + affix.id}
-                                                                        onChange={(e) => handleAffixSelected(e, false, 0)}
-                                                                    />}
-                                                                    label={`${affix.name} - ${affix.displayValue}`}/>
-                                                                <Input
-                                                                    value={Object.keys(selectedAffixesAmount).indexOf(String(affix.id)) != -1 ? selectedAffixesAmount[affix.id] : 1}
-                                                                    size="small"
-                                                                    onChange={(e) => handleAffixSelected(e, true, affix.id)}
-                                                                    inputProps={{
-                                                                        step: 1,
-                                                                        min: 1,
-                                                                        max: 100,
-                                                                        type: 'number',
-                                                                        'aria-labelledby': 'input-slider',
-                                                                    }}
-                                                                />
-                                                            </ListItemButton>
-                                                        )
-                                                    )
-                                                }
-                                            </ul>
-                                        </li>
-                                    ))}
-                                </List>
-                            </Grid>
-                            <TextField fullWidth label="命令 (20级的等级为21)" variant="standard" value={generatedArtifact}/>
+                            <Autocomplete
+                                aria-label="Artifact Name" id="ArtifactName"
+                                options={artifactData}
+                                sx={{
+                                    width: "inherit"
+                                }}
+                                getOptionLabel={(option) => option.name}
+                                onChange={handleArtifactChange}
+                                renderInput={(params) => <TextField {...params} label="圣遗物名" variant="outlined"/>}
+                            />
+                            <Autocomplete
+                                aria-label="Artifact Main Stats" id="ArtifactMainStats"
+                                options={artifactMains}
+                                sx={{
+                                    width: "inherit"
+                                }}
+                                getOptionLabel={(option) => option.name}
+                                onChange={handleMainStatChange}
+                                renderInput={(params) => <TextField {...params} label="主属性"
+                                                                    variant="outlined"/>}
+                            />
                         </Grid>
-                    </Paper>
-                </Container>
-            </Layout>}
-        </BrowserOnly>
+                        <Grid item container xs={12} sm={7}>
+                            <List
+                                sx={{
+                                    width: 'inherit',
+                                    bgcolor: 'background.paper',
+                                    position: 'relative',
+                                    overflow: 'auto',
+                                    maxHeight: 300,
+                                    '& ul': { padding: 0 },
+                                }}
+                                subheader={<li />}
+                            >
+                                {Object.keys(artifactAffixes).map((key, index) => (
+                                    <li key={index}>
+                                        <ul>
+                                            <ListSubheader>{key}</ListSubheader>
+                                            {
+                                                artifactAffixes[key].map((affix, rIndex) => (
+                                                        <ListItemButton key={affix.index}>
+                                                            <FormControlLabel
+                                                                control={<Checkbox
+                                                                    value={affix.id}
+                                                                    id={"select-"+affix.id}
+                                                                    onChange={(e)=>handleAffixSelected(e,false,0)}
+                                                                />}
+                                                                label={`${affix.name} - ${affix.displayValue}`} />
+                                                            <Input
+                                                                value={Object.keys(selectedAffixesAmount).indexOf(String(affix.id)) != -1? selectedAffixesAmount[affix.id]:1}
+                                                                size="small"
+                                                                onChange={(e)=>handleAffixSelected(e,true, affix.id)}
+                                                                inputProps={{
+                                                                    step: 1,
+                                                                    min: 1,
+                                                                    max: 100,
+                                                                    type: 'number',
+                                                                    'aria-labelledby': 'input-slider',
+                                                                }}
+                                                            />
+                                                        </ListItemButton>
+                                                    )
+                                                )
+                                            }
+                                        </ul>
+                                    </li>
+                                ))}
+                            </List>
+                        </Grid>
+                        <TextField fullWidth label="命令 (20级的等级为21)" variant="standard" value={generatedArtifact}/>
+                    </Grid>
+                </Paper>
+            </Container>
+        </Layout>
     );
 }

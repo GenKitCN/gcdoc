@@ -2,6 +2,7 @@ import {FormEvent, useEffect, useState} from "react";
 import Swal from "sweetalert2";
 
 import Layout from "@theme/Layout";
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import * as React from "react";
 import {
     Switch,
@@ -279,244 +280,246 @@ export default function GCAuth() {
     }
 
     return (
-        <Layout>
-            <Container sx={{
-                padding: {
-                    xs: '5%',
-                    sm: '2%'
-                }
-            }}>
-                <Paper
-                    sx={{
-                        p: 2,
-                        margin: 'auto',
-                        maxWidth: 1000,
-                        flexGrow: 1,
-                        background: "rgb(240, 240, 240)"
-                    }}
-                >
-                    <Grid container spacing={2} >
-                        <Grid item container spacing={2} >
-                            <Grid item container xs={10}>
-                                <TextField fullWidth label="服务器IP/域名"
-                                           defaultValue={dispatchServer} placeholder="如果有需要，输入服务器IP或者域名"
-                                           onChange={(e) => setDispatchServer(e.currentTarget.value)}
-                                />
-                                <FormControlLabel
-                                    control={<Switch
-                                        checked={useSSl} id="with-ssl"
-                                        onChange={(e) => setUseSSl(e.currentTarget.checked)}/>} label={"使用SSL"}/>
+        <BrowserOnly>
+            {() => <Layout>
+                <Container sx={{
+                    padding: {
+                        xs: '5%',
+                        sm: '2%'
+                    }
+                }}>
+                    <Paper
+                        sx={{
+                            p: 2,
+                            margin: 'auto',
+                            maxWidth: 1000,
+                            flexGrow: 1,
+                            background: "rgb(240, 240, 240)"
+                        }}
+                    >
+                        <Grid container spacing={2} >
+                            <Grid item container spacing={2} >
+                                <Grid item container xs={10}>
+                                    <TextField fullWidth label="服务器IP/域名"
+                                               defaultValue={dispatchServer} placeholder="如果有需要，输入服务器IP或者域名"
+                                               onChange={(e) => setDispatchServer(e.currentTarget.value)}
+                                    />
+                                    <FormControlLabel
+                                        control={<Switch
+                                            checked={useSSl} id="with-ssl"
+                                            onChange={(e) => setUseSSl(e.currentTarget.checked)}/>} label={"使用SSL"}/>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Button sx={{
+                                        width: "100%",
+                                        height: "100%"
+                                    }} variant="contained" onClick={checkGCAuth}>检查连接</Button>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={2}>
-                                <Button sx={{
-                                    width: "100%",
-                                    height: "100%"
-                                }} variant="contained" onClick={checkGCAuth}>检查连接</Button>
+                            <Grid item container spacing={2} >
+                                <Grid item xs={12} md={4}>
+                                    <Card sx={{
+                                        width: "100%"
+                                    }}>
+                                        <CardContent>
+                                            <Typography gutterBottom sx={{
+                                                textAlign: "center"
+                                            }} variant="h5" component="div">登录</Typography>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
+                                                           onChange={(e) => setLoginUsername(e.currentTarget.value)}/>
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={loginPassword}
+                                                           onChange={(e) => setLoginPassword(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                        </CardContent>
+                                        <CardActions>
+                                            <ButtonGroup fullWidth variant="contained"
+                                                         aria-label="outlined primary button group">
+                                                <Button onClick={handleLogin}>登录</Button>
+                                                <Button onClick={handleCopyToken}>复制Token</Button>
+                                            </ButtonGroup>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                                <Grid item xs={12} md={4}>
+                                    <Card sx={{
+                                        width: "100%"
+                                    }}>
+                                        <CardContent>
+                                            <Typography gutterBottom sx={{
+                                                textAlign: "center"
+                                            }} variant="h5" component="div">注册</Typography>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
+                                                           onChange={(e) => setRegisterUsername(e.currentTarget.value)}/>
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={registerPassword}
+                                                           onChange={(e) => setRegisterPassword(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">确认密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={registerPasswordConfirmation}
+                                                           onChange={(e) => setRegisterPasswordConfirmation(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                        </CardContent>
+                                        <CardActions>
+                                            <Button fullWidth variant="contained"
+                                                    onClick={handleRegister}>注册</Button>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                                <Grid item xs={12} md={4}>
+                                    <Card sx={{
+                                        width: "100%"
+                                    }}>
+                                        <CardContent>
+                                            <Typography gutterBottom sx={{
+                                                textAlign: "center"
+                                            }} variant="h5" component="div">修改密码</Typography>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
+                                                           onChange={(e) => setChangePasswordUsername(e.currentTarget.value)} />
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">新密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={changePasswordNewPassword}
+                                                           onChange={(e) => setChangePasswordNewPassword(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">确认密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={changePasswordNewPasswordConfirmation}
+                                                           onChange={(e) => setChangePasswordNewPasswordConfirmation(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                            <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
+                                                <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
+                                                <FormControl fullWidth sx={{m: 1}} variant="standard">
+                                                    <InputLabel htmlFor="standard-adornment-password">旧密码</InputLabel>
+                                                    <Input id="standard-adornment-password"
+                                                           type={showPassword ? 'text' : 'password'}
+                                                           value={changePasswordOldPassword}
+                                                           onChange={(e) => setChangePasswordOldPassword(e.currentTarget.value)}
+                                                           endAdornment={
+                                                               <InputAdornment position="end">
+                                                                   <IconButton
+                                                                       aria-label="toggle password visibility"
+                                                                       onClick={handleClickShowPassword}
+                                                                       onMouseDown={handleMouseDownPassword}
+                                                                   >
+                                                                       {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                                   </IconButton>
+                                                               </InputAdornment>
+                                                           }
+                                                    />
+                                                </FormControl>
+                                            </Box>
+                                        </CardContent>
+                                        <CardActions>
+                                            <ButtonGroup fullWidth variant="contained"
+                                                         aria-label="outlined primary button group">
+                                                <Button onClick={handleLogin}>登录</Button>
+                                                <Button onClick={handleCopyToken}>复制Token</Button>
+                                            </ButtonGroup>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item container spacing={2} >
-                            <Grid item xs={12} md={4}>
-                                <Card sx={{
-                                    width: "100%"
-                                }}>
-                                    <CardContent>
-                                        <Typography gutterBottom sx={{
-                                            textAlign: "center"
-                                        }} variant="h5" component="div">登录</Typography>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
-                                                       onChange={(e) => setLoginUsername(e.currentTarget.value)}/>
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={loginPassword}
-                                                       onChange={(e) => setLoginPassword(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                    </CardContent>
-                                    <CardActions>
-                                        <ButtonGroup fullWidth variant="contained"
-                                                     aria-label="outlined primary button group">
-                                            <Button onClick={handleLogin}>登录</Button>
-                                            <Button onClick={handleCopyToken}>复制Token</Button>
-                                        </ButtonGroup>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <Card sx={{
-                                    width: "100%"
-                                }}>
-                                    <CardContent>
-                                        <Typography gutterBottom sx={{
-                                            textAlign: "center"
-                                        }} variant="h5" component="div">注册</Typography>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
-                                                       onChange={(e) => setRegisterUsername(e.currentTarget.value)}/>
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={registerPassword}
-                                                       onChange={(e) => setRegisterPassword(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">确认密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={registerPasswordConfirmation}
-                                                       onChange={(e) => setRegisterPasswordConfirmation(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button fullWidth variant="contained"
-                                                onClick={handleRegister}>注册</Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <Card sx={{
-                                    width: "100%"
-                                }}>
-                                    <CardContent>
-                                        <Typography gutterBottom sx={{
-                                            textAlign: "center"
-                                        }} variant="h5" component="div">修改密码</Typography>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <TextField fullWidth sx={{m: 1}} label="用户名" variant="standard"
-                                                       onChange={(e) => setChangePasswordUsername(e.currentTarget.value)} />
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">新密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={changePasswordNewPassword}
-                                                       onChange={(e) => setChangePasswordNewPassword(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">确认密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={changePasswordNewPasswordConfirmation}
-                                                       onChange={(e) => setChangePasswordNewPasswordConfirmation(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                        <Box sx={{display: 'flex', alignItems: 'flex-end'}}>
-                                            <PasswordIcon sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                                            <FormControl fullWidth sx={{m: 1}} variant="standard">
-                                                <InputLabel htmlFor="standard-adornment-password">旧密码</InputLabel>
-                                                <Input id="standard-adornment-password"
-                                                       type={showPassword ? 'text' : 'password'}
-                                                       value={changePasswordOldPassword}
-                                                       onChange={(e) => setChangePasswordOldPassword(e.currentTarget.value)}
-                                                       endAdornment={
-                                                           <InputAdornment position="end">
-                                                               <IconButton
-                                                                   aria-label="toggle password visibility"
-                                                                   onClick={handleClickShowPassword}
-                                                                   onMouseDown={handleMouseDownPassword}
-                                                               >
-                                                                   {showPassword ? <VisibilityOff/> : <Visibility/>}
-                                                               </IconButton>
-                                                           </InputAdornment>
-                                                       }
-                                                />
-                                            </FormControl>
-                                        </Box>
-                                    </CardContent>
-                                    <CardActions>
-                                        <ButtonGroup fullWidth variant="contained"
-                                                     aria-label="outlined primary button group">
-                                            <Button onClick={handleLogin}>登录</Button>
-                                            <Button onClick={handleCopyToken}>复制Token</Button>
-                                        </ButtonGroup>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Paper>
-            </Container>
-        </Layout>
+                    </Paper>
+                </Container>
+            </Layout>}
+        </BrowserOnly>
     )
 }
