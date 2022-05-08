@@ -1,10 +1,9 @@
 ---
-id: deploy_linux
-title: 在 Linux 上部署
-sidebar_label: Linux
+title: 🐧 在  Linux  上部署
+sidebar_label: 🐧 Linux
 ---
 
-## 环境配置
+## 📦 环境配置
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,7 +11,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="arch" label="Arch Linux" default>
 
-## 安装一个 AUR 工具 (如果没有)
+## 🛍️ 安装一个 AUR 工具 (如果没有)
 
 ```bash
 sudo pacman -S git base-devel
@@ -21,7 +20,7 @@ cd paru
 makepkg -si
 ```
 
-## MongoDB 数据库
+### 🗃️ MongoDB 数据库
 
 ```bash
 paru -S mongodb-bin
@@ -30,7 +29,7 @@ sudo systemctl enable --now mongodb
 
 如果 `systemctl status mongodb` 的状态为 "active" 则表示安装成功
 
-## OpenJDK 17
+## ☕ OpenJDK 17
 
 ```bash
 sudo pacman -S jdk17-openjdk
@@ -39,7 +38,7 @@ sudo archlinux-java set java-17-openjdk
 
 如果 `java -version` 有输出类似 `openjdk version "17.0.3" 2022-04-19` 的内容则表示安装成功
 
-## mitmproxy 代理
+## ⛓️ mitmproxy 代理
 
 ```bash
 sudo pacman -S mitmproxy python
@@ -47,20 +46,20 @@ sudo pacman -S mitmproxy python
 
   </TabItem>
   <TabItem value="ubuntu" label="Ubuntu">
-Working in progress
+🛠️ Working in progress
   </TabItem>
   <TabItem value="centos" label="Fedora / CentOS">
 
 :::danger 警告
 
-Fedora 全系(包括 CentOS)在本文中均无法得到任何支持
+⚠️ Fedora 全系(包括 CentOS)在本文中均无法得到任何支持
 
 :::
 
   </TabItem>
 </Tabs>
 
-## 运行服务器
+## 🚜 运行服务器
 
 ```bash
 cd /path/to/grasscutter # 进入 Grasscutter 目录
@@ -68,7 +67,7 @@ mitmdump -s proxy.py -k --set block_global=false &  # 运行 mitmdump 代理
 sudo /usr/lib/jvm/java-17-openjdk/bin/java -jar grasscutter.jar # 运行服务器主文件
 ```
 
-如果测试起来没问题的话可以制作一个 Shell 脚本方便下次运行，内容如下
+如果测试起来没问题的话可以制作一个 🐚 Shell 脚本方便下次运行，内容如下
 
 ```bash
 #!/bin/bash
