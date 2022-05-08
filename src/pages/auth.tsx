@@ -2,7 +2,7 @@ import {FormEvent, useEffect, useState} from "react";
 import Swal from "sweetalert2";
 
 import Layout from "@theme/Layout";
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import * as React from "react";
 import {
     Switch,
@@ -279,9 +279,9 @@ export default function GCAuth() {
         }
     }
 
-    return (
-        <BrowserOnly>
-            {() => <Layout>
+    if (useIsBrowser()) {
+        return (
+            <Layout>
                 <Container sx={{
                     padding: {
                         xs: '5%',
@@ -507,11 +507,7 @@ export default function GCAuth() {
                                             </Box>
                                         </CardContent>
                                         <CardActions>
-                                            <ButtonGroup fullWidth variant="contained"
-                                                         aria-label="outlined primary button group">
-                                                <Button onClick={handleLogin}>登录</Button>
-                                                <Button onClick={handleCopyToken}>复制Token</Button>
-                                            </ButtonGroup>
+                                            <Button fullWidth variant="contained" onClick={handleChangePassword}>修改密码</Button>
                                         </CardActions>
                                     </Card>
                                 </Grid>
@@ -519,7 +515,8 @@ export default function GCAuth() {
                         </Grid>
                     </Paper>
                 </Container>
-            </Layout>}
-        </BrowserOnly>
-    )
+            </Layout>
+        )
+    }
+    return null;
 }
