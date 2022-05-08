@@ -85,12 +85,16 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: '介绍',
-                to: '/docs/intro',
+                label: '关于',
+                to: '/docs/about',
               },
               {
                 label: '快速开始',
-                to: '/docs/quick-start',
+                to: '/docs/quick-start/get_server_jar',
+              },
+              {
+                label: 'FAQ',
+                to: '/docs/faq/4206',
               },
             ],
           },
