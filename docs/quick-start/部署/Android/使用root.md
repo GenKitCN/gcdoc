@@ -142,7 +142,7 @@ sudo java -jar <grasscutter.jar>
 
 > 主文件名因人而异，按需修改。
 > 例如现在我的文件结构是这样
-> ![文件结构](/data/Code/gcdoc/docs/quick-start/部署/Android/使用root/files.png)
+> ![文件结构](img/docs/quick-start/部署/Android/使用root/files.png)
 > 主文件名是 `grasscutterZH-dev-775f4cb.jar`
 > 则应该运行:
 > 
