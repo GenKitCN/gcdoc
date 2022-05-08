@@ -67,7 +67,11 @@ sudo pacman -Sy --overwrite \* git wget curl mitmproxy
 
 ### MongoDB 数据库
 
-> 如果按照下面的教程，执行时提示"非法指令",这是因为你的设备较老。请尝试使用4.4.20版本。
+:::tip
+
+如果按照下面的教程，执行时提示"非法指令",这是因为你的设备较老。请尝试使用4.4.20版本。
+
+:::
 
 下载 [mongod 主程序 5.0.8](https://drive.google.com/file/d/1rdR3TeWtvQt8z738iyfGX6riSXCbrIe1/) (在骁龙 865 测试可用)
 
@@ -140,15 +144,23 @@ sudo java -jar <grasscutter.jar>
 
 来开启服务器。
 
-> 主文件名因人而异，按需修改。
-> 例如现在我的文件结构是这样
-> ![文件结构](/img/docs/quick-start/部署/Android/使用root/files.png)
-> 主文件名是 `grasscutterZH-dev-775f4cb.jar`
-> 则应该运行:
-> 
-> ```bash
-> sudo java -jar grasscutterZH-dev-775f4cb.jar
-> ```
+:::note
+
+主文件名因人而异，按需修改。
+
+例如现在我的文件结构是这样
+
+![文件结构](/img/docs/quick-start/部署/Android/使用root/files.png)
+
+主文件名是 `grasscutterZH-dev-775f4cb.jar`
+
+则应该运行:
+
+```bash
+sudo java -jar grasscutterZH-dev-775f4cb.jar
+```
+
+:::
 
 再开另一个终端，进入目录，输入
 
@@ -158,7 +170,11 @@ mitmproxy -k -s proxy.py
 
 来开启 mitmproxy。
 
-> 若有公网连接需求，可以在运行参数中添加 `--set block_global=false`
+:::tip
+
+若有公网连接需求，可以在运行参数中添加 `--set block_global=false`
+
+:::
 
 如何连接服务器请同样参考上面的教程。
 
