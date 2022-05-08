@@ -95,7 +95,7 @@ const config = {
               },
               {
                 label: 'FAQ',
-                to: '/docs/faq/4206',
+                to: '/docs/faq/error-4206',
               },
             ],
           },
