@@ -80,7 +80,7 @@ java -jar grasscutter.jar
 # 编辑config.json
 > 将 GameServer, DispatchServer 中 PublicIp 的值设置为域名
 > 将 GameServer 中 PublicPort 的值设置为 22102
-> 将 DispatchServer 中 PublicPort 的值设置为 65530 (可替换为其他的合理的值)
+> 将 DispatchServer 中 Port 的值设置为 65530 (可替换为其他的合理的值)
 > 将 DispatchServer 中 PublicPort 的值设置为 443
 > 将 DispatchServer 中 UseSSL 的值设置为 false
 ```
@@ -103,7 +103,7 @@ screen -DR a
 # 编辑Caddyfile
 # 文件位于 /etc/caddy/Caddyfile
 # 将 genshin.your.domain 替换为实际值
-# 将 http://localhost:1000 中 1000 替换为 DispatchServer 中 PublicPort 的值
+# 将 http://localhost:1000 中 1000 替换为 DispatchServer 中 Port 的值
 mv /etc/caddyCaddyfile /etc/caddyCaddyfile.1
 cat >/etc/caddy/Caddyfile<<EOF
 genshin.your.domain {
