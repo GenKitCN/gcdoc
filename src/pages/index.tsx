@@ -17,7 +17,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/about">
-            搞快点！
+            🛩️ 搞快点！
           </Link>
         </div>
       </div>

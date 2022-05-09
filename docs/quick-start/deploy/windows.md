@@ -3,13 +3,13 @@ title: 💠 在 Windows 上部署
 sidebar_label: 💠 Windows
 ---
 
-## 配置环境
+## 📦 配置环境
 
-### MongoDB 数据库
+### 🗃️ MongoDB 数据库
 
 前往 [MongoDB 官网](https://www.mongodb.com/try/download/community)，在右侧下载 5.x 版本的 MongoDB，推荐使用 msi 安装
 
-### OpenJDK 17
+### ☕ OpenJDK 17
 
 前往 [Java 官网](https://jdk.java.net/archive/)，下载 zip 文件，解压到一个平时不会动的位置(比如 `C:\Program Files\Java`)
 
@@ -21,9 +21,9 @@ sidebar_label: 💠 Windows
 
 在任意位置打开一个 cmd 窗口，如果 `java -version` 有输出类似 `openjdk version "17.0.3" 2022-04-19` 的内容则表示安装成功
 
-### mitmproxy
+### ⛓️ mitmproxy
 
-#### Python 3(如果没有)
+#### 🐍 Python 3(如果没有)
 
 前往 [Python 官网](https://www.python.org/downloads/windows/)，在 Stable Releases 中下载 Windows Installer (64-bit)
 
@@ -35,11 +35,11 @@ sidebar_label: 💠 Windows
 
 安装完成后，在任意位置打开一个 cmd 窗口，如果 `python -V` 有输出类似 `Python 3.10.4` 的内容则表示安装成功
 
-#### mitmproxy 本体
+#### ⛓️ mitmproxy 本体
 
 前往 [mitmproxy 官网](https://mitmproxy.org/)，下载 Windows Installer 并安装
 
-## 运行服务器
+## 📟 运行服务器
 
 在资源管理器中打开 Grasscutter 所在文件夹，将上方地址栏中的内容改为 `cmd`，回车即可在当前目录打开命令提示符
 

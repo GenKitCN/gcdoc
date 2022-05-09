@@ -3,9 +3,9 @@ title: 📥 获取服务端
 sidebar_label: 📥 获取服务端
 ---
 
-## 获取服务端主文件
+## 📥 获取服务端主文件
 
-### 从频道获取(推荐)
+### ✈️ 从频道获取 (推荐)
 
 前往 [Telegram 频道](https://t.me/genkitCN)
 
@@ -13,7 +13,7 @@ sidebar_label: 📥 获取服务端
 
 如无特殊需求下载最新的汉化版本即可
 
-### 从源码手动编译
+### ⚒️ 从源码手动编译
 
 :::note
 
@@ -43,7 +43,7 @@ gradlew.bat build
 ./gradlew build
 ```
 
-## 补全资源
+## 🧰 补全资源
 
 :::tip
 
@@ -51,27 +51,27 @@ gradlew.bat build
 
 :::
 
-### 生成资源文件夹
+### 🪤 生成资源文件夹
 
 ```bash
 java -jar <grasscutter>.jar
 ```
 
-### 获取资源文件
+### 📥 获取资源文件
 
-#### GenshinData
+#### 📮 GenshinData
 
 下载 [GenshinData 仓库](https://github.com/Dimbreath/GenshinData/tree/a83df7fcbcc26b2fc3d2918354caaaf223a40611)
 
 将其中 `TextMap`, `Subtitle`, `Readable`, `ExcelBinOutput` 四个文件夹放入 Grasscutter 文件夹中的 `resources` 中
 
-#### gi-bin-output
+#### 📮 gi-bin-output
 
 下载 [gi-bin-output 仓库](https://github.com/zhsitao/gi-bin-output)
 
 将其中的 `2.5.52/Data/_BinOutput` 文件夹重命名为 `BinOutput` 并将其放入 Grasscutter 文件夹中的 `resources` 中
 
-#### Keys, Data, Keystore
+#### 🔑 Keys, Data, Keystore
 
 :::tip
 

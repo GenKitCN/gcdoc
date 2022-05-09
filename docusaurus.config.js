@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'GenKit Wiki',
-  tagline: 'Grasscutter CN Wiki',
+  tagline: 'Grasscutter 中文百科',
   url: 'https://genkit.mhysb.xyz',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -67,14 +67,14 @@ const config = {
             type: 'doc',
             docId: 'about',
             position: 'left',
-            label: '文档',
+            label: '📃 文档',
           },
-          {to: '/artifact', label: '圣遗物在线生成', position: 'left'},
-          {to: '/auth', label: 'GCAuth', position: 'left'},
-          {to: '/blog', label: '博客', position: 'left'},
+          {to: '/artifact', label: '👑 圣遗物在线生成', position: 'left'},
+          {to: '/auth', label: '🔑 GCAuth', position: 'left'},
+          {to: '/blog', label: '📰 博客', position: 'left'},
           {
             href: 'https://t.me/genkitCN_chat',
-            label: 'Telegram',
+            label: '✈️ Telegram',
             position: 'right',
           },
         ],
@@ -83,18 +83,18 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '文档',
             items: [
               {
-                label: '关于',
-                to: '/docs/about',
-              },
-              {
-                label: '快速开始',
+                label: '🏃‍ 快速开始',
                 to: '/docs/quick-start/get-server',
               },
               {
-                label: 'FAQ',
+                label: '✅ 关于',
+                to: '/docs/about',
+              },
+              {
+                label: '❓ FAQ',
                 to: '/docs/faq/error-4206',
               },
             ],
@@ -103,15 +103,15 @@ const config = {
             title: '交流',
             items: [
               {
-                label: 'Telegram 发布频道',
+                label: '✈️ Telegram 发布频道',
                 href: 'https://t.me/genkitCN',
               },
               {
-                label: 'Telegram 讨论组',
+                label: '👥 Telegram 讨论组',
                 href: 'https://t.me/genkitCN_chat',
               },
               {
-                label: 'Telegram 讨论组(人多|临时)',
+                label: '👥 Telegram 讨论组(人多|临时)',
                 href: 'https://t.me/genshinhelper',
               }
             ],
@@ -130,7 +130,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} GenKit, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} GenKit 版权所有。基于 Docusaurus 构建。`,
       },
       prism: {
         theme: lightCodeTheme,

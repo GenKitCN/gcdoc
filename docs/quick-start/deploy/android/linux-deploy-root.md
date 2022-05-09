@@ -5,7 +5,7 @@ sidebar_label: 🔔 有 root
 
 :::caution
 
-⚠️ 看前须知：此教程必须有 root，没 root 痛快衮。别来问没 root 怎么办，打钱也不行。
+看前须知：此教程必须有 root，没 root 痛快衮。别来问没 root 怎么办，打钱也不行。
 此教程也需要你有一定的 Linux 基础。
 
 :::
@@ -149,7 +149,7 @@ sudo java -jar <grasscutter.jar>
 
 例如现在我的文件结构是这样
 
-![文件结构](/img/docs/quick-start/部署/Android/使用root/files.png)
+![文件结构](https://imgsrc.baidu.com/super/pic/item/faf2b2119313b07eece79ede49d7912396dd8c8a.jpg)
 
 主文件名是 `grasscutterZH-dev-775f4cb.jar`
 
