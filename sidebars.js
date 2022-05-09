@@ -8,7 +8,7 @@ const sidebars = {
       type: 'category',
       label: '🚜 快速开始',
       items: [
-        'quick-start/get-server-jar',
+        'quick-start/get-server',
         {
           type: 'category',
           label: '⚒️ 部署',
