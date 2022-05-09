@@ -47,7 +47,7 @@ gradlew.bat build
 
 :::tip
 
-本文后续会大量使用 `<grasscutter>.jar`，请手动将 `<grasscutter>` 部分替换为您下载/编译的文件名
+请将 `<grasscutter>` 替换为您下载/编译的文件名
 
 :::
 
