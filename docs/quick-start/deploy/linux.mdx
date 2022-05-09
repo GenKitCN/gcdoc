@@ -121,11 +121,15 @@ Fedora 全系(包括 CentOS)在本文中均无法得到任何支持
 
 ## 🚜 运行服务器
 
+### 测试
+
 ```bash
 cd /path/to/grasscutter # 进入 Grasscutter 目录
 mitmdump -s proxy.py -k --set block_global=false &  # 运行 mitmdump 代理
 sudo java -jar grasscutter.jar # 运行服务器主文件
 ```
+
+### 编写脚本
 
 如果测试起来没问题的话可以制作一个 🐚 Shell 脚本方便下次运行，内容如下
 
@@ -135,6 +139,56 @@ cd /path/to/grasscutter
 mitmdump -s proxy.py -k --set block_global=false &
 sudo java -jar grasscutter.jar
 ```
+
+### 保持后台
+
+推荐使用 `screen` 实现保持后台
+
+#### 安装
+
+<Tabs>
+
+  <TabItem value="arch" label="Arch Linux" default>
+
+    ```bash
+    sudo pacman -S screen
+    ```
+
+  </TabItem>
+
+  <TabItem value="ubuntu-debian" label="Ubuntu & Debian">
+
+    ```bash
+    sudo apt install screen
+    ```
+
+  </TabItem>
+
+</Tabs>
+
+#### 使用
+
+简单介绍一下 screen 的使用方法
+
+```bash title="创建会话"
+screen -S name
+```
+
+此时便进入了一个新的会话，与普通的终端无异，在运行需要保持的命令后，可使用 <kbd>Ctrl</kbd> + <kbd>A<kbd>, <kbd>D</kbd> 离开当前会话
+
+```bash title="查看现有会话"
+screen -ls
+```
+
+该命令会列出现有的所有会话
+
+```bash title="回到会话"
+screen -r name
+```
+
+此时便回到了之前创建的会话，可继续对其中运行的程序进行操作
+
+使用 screen 创建的会话在 ssh 断连时也会保持运行
 
 :::info
 
