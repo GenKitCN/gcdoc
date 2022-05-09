@@ -91,7 +91,7 @@ const config = {
               },
               {
                 label: '快速开始',
-                to: '/docs/quick-start/get-server-jar',
+                to: '/docs/quick-start/get-server',
               },
               {
                 label: 'FAQ',
