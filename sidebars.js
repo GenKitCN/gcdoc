@@ -15,8 +15,6 @@ const sidebars = {
           items: [
             'quick-start/deploy/linux',
             'quick-start/deploy/macos',
-            'quick-start/deploy/windows',
-            'quick-start/deploy/click-to-run',
             {
               type: 'category',
               label: '🤖 安卓',
@@ -26,7 +24,10 @@ const sidebars = {
                   dirName: 'quick-start/deploy/android'
                 }
               ],
-            }
+            },
+            'quick-start/deploy/windows',
+            'quick-start/deploy/click-to-run',
+            'quick-start/deploy/fastrun-debian-ios'
           ],
         },
       ],
