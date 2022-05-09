@@ -25,18 +25,18 @@ JDK 建议前往文档对应操作系统的`环境配置`部分配置
 
 :::
 
-```bash 获取服务端源码
+```bash title="获取服务端源码"
 # 稳定分支
 git clone https://github.com/Grasscutters/Grasscutter
 # 开发分支
 git clone -b development https://github.com/Grasscutters/Grasscutter
 ```
 
-```bash 进入源码目录
+```bash title="进入源码目录"
 cd Grasscutter
 ```
 
-```bash 编译服务端
+```bash title="编译服务端"
 # Windows
 gradlew.bat build
 # Linux
