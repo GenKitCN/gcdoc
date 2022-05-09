@@ -9,38 +9,42 @@ sidebar_label: "👨‍💻 Debian + iOS 速通"
 使用 CC BY-SA 4.0 协议共享
 :::
 
-## 条件
+## 📦 条件
+
 1. 运行 Debian 11 的远程服务器，且 80 / 443 端口可用
 2. 一个域名，若服务器 / 域名在中国大陆内则需要备案，域名解析到上述远程服务器的公网 IPv4 地址
 3. iOS/iPadOS 设备，运行 Shadowrocket 或 Surge
 4. 一双能看清楚教程的眼睛
 
-## 总结
+## 🏷️ 总结
 在 Debian 上部署 Grasscutter，在 iOS 端处理 MitM 并重定向流量。
 
 ----
 
-## 部署服务端
+## ⚒️ 部署服务端
 
-#### 以root用户连接 SSH 登录服务器
+#### 👤 以root用户连接 SSH 登录服务器
 
-#### 更新系统依赖及部署常见软件包
+#### ♻️ 更新系统依赖及部署常见软件包
 ```bash
 apt update -y && apt upgrade -y && apt-get install -y gnupg sudo net-tools vim nano tar zip unzip p7zip-full wget curl git screen htop nload lsof telnet debian-keyring debian-archive-keyring apt-transport-https ufw
 ```
 _\* 有些软件包可能用不上，但是为了防止某一步报错还是都给装上好点。_
 
-#### 安装 Java 17
+#### ☕ 安装 Java 17
 ```bash
 apt install openjdk-17-jre openjdk-17-jdk
 ```
 
-#### 安装 MongoDB
+### 🗃️ 安装 MongoDB
+
 ```bash
 # 获取公钥
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+
 # 添加下载源
 echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+
 # 安装MongoDB
 apt install -y mongodb-org
 
@@ -48,10 +52,11 @@ apt install -y mongodb-org
 systemctl enable mongod && systemctl start mongod
 ```
 
-#### 安装Caddy
+#### 🌐 安装 Caddy
 ```bash
 # 获取公钥
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
+
 # 添加下载源
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
 
@@ -59,18 +64,20 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 apt update && apt install -y caddy
 ```
 
-#### 获取Grasscutter
+#### 🚜 获取 Grasscutter
 ```bash
 cd ~
 
 # 克隆源到本地 (以development分支为例)
 git clone https://github.com/Grasscutters/Grasscutter --branch development && cd Grasscutter
+
 # 克隆 resources
 git clone https://github.com/Dimbreath/GenshinData resources
+
 # 前往 https://github.com/Grasscutters/Grasscutter/actions 下载最新 jar 到本地文件夹
 ```
 
-#### 编辑config.json
+#### ✒️ 编辑 config.json
 ```bash
 # 生成 config.json
 # 将 grasscutter.jar 替换为实际值
@@ -85,7 +92,7 @@ java -jar grasscutter.jar
 > 将 DispatchServer 中 UseSSL 的值设置为 false
 ```
 
-#### 启动Grasscutter
+#### 🚜 启动 Grasscutter
 ```bash
 # 创建新窗口
 # 将 a, ~/Grasscutter/grasscutter.jar 替换为实际值
@@ -98,7 +105,7 @@ screen -DR a
 > CTRL+A + CTRL+D
 ```
 
-#### 配置Caddy
+#### 🌐 配置 Caddy
 ```bash
 # 编辑Caddyfile
 # 文件位于 /etc/caddy/Caddyfile
@@ -117,7 +124,7 @@ EOF
 systemctl restart caddy
 ```
 
-#### 配置ufw开启防火墙
+#### 🧱 配置 ufw 开启防火墙
 ```bash
 # 放行端口
 ufw allow SSH
@@ -130,11 +137,11 @@ ufw enable --force
 
 ----
 
-## 配置设备端
+## 📲 配置设备端
 
-### Shadowrocket
+### 🚀 Shadowrocket
 
-#### 编写模块
+#### ✒️ 编写模块
 1. Shadowrocket \> 配置 \> 模块 \> 新建模块，写入以下内容。
 ```bash
 #!name=Genshin Impact Routing Module MitM
@@ -177,16 +184,16 @@ hostname = %APPEND% api-os-takumi.mihoyo.com,hk4e-api-os-static.mihoyo.com,hk4e-
 ```
 2. 将 `genshin.exzork.me` 替换为实际值
 
-#### 开启并配置MitM
+#### ⛓️ 开启并配置 MitM
 Shadowrocket \> 配置 \> 本地文件 \> 选中活跃配置右侧的 i \> HTTPS解密，启用、生成并信任证书。别忘了到 设置 \> 通用 \> 关于最下方信任根证书。
 
-#### 启动Shadowrocket
+#### 🚀 启动 Shadowrocket
 Enjoy!
 
 
-### Surge
+### 🌊 Surge
 
-#### 编写模块
+#### ✒️ 编写模块
 1. Surge \> 模块 \> 新建本地模块，写入以下内容。
 ```bash
 #!name=Genshin Impact Routing Module MitM
@@ -229,10 +236,10 @@ hostname = %APPEND% api-os-takumi.mihoyo.com,hk4e-api-os-static.mihoyo.com,hk4e-
 ```
 2. 将 `genshin.exzork.me` 替换为实际值
 
-#### 开启并配置MitM
+#### ⛓️ 开启并配置 MitM
 Surge \> MitM(启用) \> 配置根证书，生成、安装并信任证书。别忘了到 设置 \> 通用 \> 关于最下方信任根证书。
 
-#### 启动Surge
+#### 🌊 启动 Surge
 Enjoy!
 
 ----

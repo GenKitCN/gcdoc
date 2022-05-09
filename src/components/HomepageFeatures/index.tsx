@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '清晰易读',
     Svg: require('@site/static/img/translate-language-svgrepo-com.svg').default,
     description: (
         <>
@@ -28,7 +28,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Powered by React',
+    title: '无微不至',
     Svg: require('@site/static/img/comment-discussion-svgrepo-com.svg').default,
     description: (
         <>
