@@ -45,7 +45,7 @@ gradlew.bat build
 
 ## 补全资源
 
-:::info
+:::tip
 
 本文后续会大量使用 `<grasscutter>.jar`，请手动将 `<grasscutter>` 部分替换为您下载/编译的文件名
 
@@ -73,7 +73,7 @@ java -jar <grasscutter>.jar
 
 #### Keys, Data, Keystore
 
-:::info
+:::tip
 
 该步骤仅需要[从频道获取](#从频道获取推荐)的服务端进行
 
