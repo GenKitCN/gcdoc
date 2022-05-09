@@ -17,7 +17,7 @@ sidebar_label: 📥 获取服务端
 
 :::note
 
-手动编译需要安装 [Git](https://git-scm.com/) 和 JDK 
+手动编译需要安装 [Git](https://git-scm.com/) 和 JDK
 
 Git 的安装方法十分简单不再赘述
 
