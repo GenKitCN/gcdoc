@@ -41,7 +41,7 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment
 ### 部署
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Wansn-w/gcdoc&template=docusaurus-2)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/GenKitCN/gcdoc&template=docusaurus-2)
 
 
 Using SSH:
