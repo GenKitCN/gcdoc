@@ -109,7 +109,7 @@ export default function GCAuth() {
     useEffect(() => {
         setBaseUrl(`http${useSSl ? "s" : ""}://${dispatchServer}`);
         localStorage.setItem("dispatchServer", dispatchServer);
-        localStorage.setItem("useSSl", useSSl.toString());
+        localStorage.setItem("useSSl", (useSSl !== undefined? useSSl.toString():undefined));
     }, [useSSl, dispatchServer]);
 
     const handleLogin = async (e: FormEvent) => {
@@ -303,7 +303,7 @@ export default function GCAuth() {
                         >
                             <Grid container spacing={2} >
                                 <Grid item container spacing={2} >
-                                    <Grid item container xs={10}>
+                                    <Grid item container xs={9} sm={10}>
                                         <TextField fullWidth label="服务器IP/域名"
                                                    defaultValue={dispatchServer} placeholder="如果有需要，输入服务器IP或者域名"
                                                    onChange={(e) => setDispatchServer(e.currentTarget.value)}
@@ -313,7 +313,7 @@ export default function GCAuth() {
                                                 checked={useSSl} id="with-ssl"
                                                 onChange={(e) => setUseSSl(e.currentTarget.checked)}/>} label={"使用SSL"}/>
                                     </Grid>
-                                    <Grid item xs={2}>
+                                    <Grid item xs={3} sm={2}>
                                         <Button sx={{
                                             width: "100%",
                                             height: "100%"
