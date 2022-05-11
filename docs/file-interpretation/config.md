@@ -416,6 +416,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+库存武器最大数量
 
 ```json title="config.json"
 {
@@ -429,6 +430,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+库存圣遗物最大数量
 
 ```json title="config.json"
 {
@@ -442,6 +444,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+库存材料最大数量
 
 ```json title="config.json"
 {
@@ -455,6 +458,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+库存家具最大数量
 
 ```json title="config.json"
 {
@@ -468,6 +472,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+总库存最大数量
 
 ```json title="config.json"
 {
@@ -481,6 +486,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+队内最大角色数量
 
 ```json title="config.json"
 {
@@ -494,6 +500,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+多人游戏队内最大角色数量
 
 ```json title="config.json"
 {
@@ -507,6 +514,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+最大实体数量
 
 ```json title="config.json"
 {
@@ -533,6 +541,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+游戏内控制台名称
 
 ```json title="config.json"
 {
@@ -546,6 +555,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+游戏内控制台头像ID
 
 ```json title="config.json"
 {
@@ -559,6 +569,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+游戏内控制台名片ID
 
 ```json title="config.json"
 {
@@ -572,6 +583,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+游戏内控制台冒险等级
 
 ```json title="config.json"
 {
@@ -585,6 +597,7 @@ Lua脚本路径
 
 - 类型：`integer`
 
+游戏内控制台世界等级
 
 ```json title="config.json"
 {
@@ -598,6 +611,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+游戏内控制台签名
 
 ```json title="config.json"
 {
@@ -611,6 +625,7 @@ Lua脚本路径
 
 - 类型：`list`
 
+游戏内控制台欢迎表情ID
 
 ```json title="config.json"
 {
@@ -628,6 +643,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+游戏内控制台欢迎文本
 
 ```json title="config.json"
 {
@@ -641,6 +657,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+欢迎邮件标题
 
 ```json title="config.json"
 {
@@ -654,6 +671,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+欢迎邮件发件人
 
 ```json title="config.json"
 {
@@ -667,6 +685,7 @@ Lua脚本路径
 
 - 类型：`string`
 
+欢迎邮件内容文本
 
 ```json title="config.json"
 {
@@ -680,6 +699,11 @@ Lua脚本路径
 
 - 类型：`<class 'list'>`
 
+欢迎邮件附件内容
+   
+- itemId: 物品ID
+- itemCount: 物品数量
+- itemLevel: 物品等级
 
 ```json title="config.json"
 {
@@ -704,6 +728,7 @@ Lua脚本路径
 
 - 类型：`boolean`
 
+是否开启商店`true/false`
 
 ```json title="config.json"
 {
@@ -717,6 +742,9 @@ Lua脚本路径
 
 - 类型：`object`
 
+    - ADVENTURE_EXP_RATE: 冒险阅历倍率
+    - MORA_RATE: 摩拉倍率
+    - DOMAIN_DROP_RATE: 怪物掉落倍率
 
 ```json title="config.json"
 {
@@ -823,6 +851,8 @@ Lua脚本路径
 
 - 类型：string
 
+本地语言
+
 ```json title="config.json"
 {
     "LocaleLanguage": "zh_CN"
@@ -833,6 +863,8 @@ Lua脚本路径
 
 - 类型：string
 
+默认语言
+
 ```json title="config.json"
 {
     "DefaultLanguage": "en"
@@ -842,6 +874,8 @@ Lua脚本路径
 ## `OpenStamina`
 
 - 类型：boolean
+
+是否开启体力消耗`true/false`
 
 ```json title="config.json"
 {
