@@ -59,17 +59,11 @@ java -jar <grasscutter>.jar
 
 ### 📥 获取资源文件
 
-#### 📮 GenshinData
+#### 📮 Grasscutter_Resources
 
-下载 [GenshinData 仓库](https://github.com/Dimbreath/GenshinData/tree/a83df7fcbcc26b2fc3d2918354caaaf223a40611)
+下载 [Grasscutter_Resources 仓库](https://github.com/Koko-boya/Grasscutter_Resources)
 
-将其中 `TextMap`, `Subtitle`, `Readable`, `ExcelBinOutput` 四个文件夹放入 Grasscutter 文件夹中的 `resources` 中
-
-#### 📮 gi-bin-output
-
-下载 [gi-bin-output 仓库](https://github.com/zhsitao/gi-bin-output)
-
-将其中的 `2.5.52/Data/_BinOutput` 文件夹重命名为 `BinOutput` 并将其放入 Grasscutter 文件夹中的 `resources` 中
+将 `Resources` 中的所有部分放入 Grasscutter 文件夹中的 `resources` 中
 
 #### 🔑 Keys, Data, Keystore
 
