@@ -151,7 +151,29 @@ const config = {
         // ```
       },
     ],
-  ]
+  ],
+  plugins: [
+    async function myPlugin(context, options) {
+      // ...
+      return {
+        name: 'docusaurus-plugin',
+        injectHtmlTags({content}) {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                attributes: {
+                  async: true,
+                  "data-website-id": "81a2cde9-8f24-4577-a0fc-882cb165bd4e",
+                  src: "https://genkit-umami.vercel.app/umami.js",
+                },
+              },
+            ]
+          };
+        },
+      };
+    },
+  ],
 };
 
 module.exports = config;
