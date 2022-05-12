@@ -24,7 +24,16 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh',
-    locales: ['zh']
+    locales: ['zh', 'en'],
+    localeConfigs: {
+      zh: {
+        htmlLang: 'zh-CN',
+      },
+      // You can omit a locale (e.g. fr) if you don't need to override the defaults
+      en: {
+        htmlLang: 'en-US',
+      },
+    },
   },
 
   presets: [
@@ -147,7 +156,7 @@ const config = {
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:
         // ```
-        // language: ["en", "zh"],
+        language: ["en", "zh"],
         // ```
       },
     ],
@@ -156,7 +165,7 @@ const config = {
     async function myPlugin(context, options) {
       // ...
       return {
-        name: 'docusaurus-plugin',
+        name: 'GenKit-Trace',
         injectHtmlTags({content}) {
           return {
             headTags: [

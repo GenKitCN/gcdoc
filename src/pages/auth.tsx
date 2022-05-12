@@ -56,8 +56,8 @@ export default function GCAuth() {
     const isBrowser = useIsBrowser();
 
     const [jwt, setJwt] = useState("");
-    const [dispatchServer, setDispatchServer] = useState(isBrowser? localStorage.getItem("dispatchServer") ?? "":undefined);
-    const [useSSl, setUseSSl] = useState(isBrowser?localStorage.getItem("useSSl") === "true" ?? true:undefined);
+    const [dispatchServer, setDispatchServer] = useState(isBrowser? localStorage.getItem("dispatchServer") ?? localStorage.getItem("dispatchServer"):"localhost");
+    const [useSSl, setUseSSl] = useState(isBrowser?localStorage.getItem("useSSl") === "true" ?? true:false);
     const [baseUrl, setBaseUrl] = useState("");
 
     const [loginUsername, setLoginUsername] = useState("");
@@ -109,7 +109,7 @@ export default function GCAuth() {
     useEffect(() => {
         setBaseUrl(`http${useSSl ? "s" : ""}://${dispatchServer}`);
         localStorage.setItem("dispatchServer", dispatchServer);
-        localStorage.setItem("useSSl", (useSSl !== undefined? useSSl.toString():undefined));
+        localStorage.setItem("useSSl", (useSSl !== false? useSSl.toString():'false'));
     }, [useSSl, dispatchServer]);
 
     const handleLogin = async (e: FormEvent) => {
