@@ -138,12 +138,12 @@ const config = {
               },
               {
                 label: 'GenKitCN GitHub',
-                herf: 'https://github.com/GenKitCN',
+                href: 'https://github.com/GenKitCN',
               },
               {
                 label: 'E-Mail',
-                herf: 'mailto:chitang233@proton.me',
-              }
+                href: 'mailto:chitang233@proton.me',
+              },
             ],
           },
         ],
