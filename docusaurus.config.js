@@ -136,10 +136,18 @@ const config = {
                 label: 'Grasscutter GitHub',
                 href: 'https://github.com/Grasscutters/Grasscutter',
               },
+              {
+                label: 'GenKitCN GitHub',
+                herf: 'https://github.com/GenKitCN',
+              },
+              {
+                label: 'E-Mail',
+                herf: 'mailto:chitang233@proton.me',
+              }
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} GenKit 版权所有。基于 Docusaurus 构建。`,
+        copyright: `© ${new Date().getFullYear()} GenKit 版权所有。基于 Docusaurus 构建。`,
       },
       prism: {
         theme: lightCodeTheme,
