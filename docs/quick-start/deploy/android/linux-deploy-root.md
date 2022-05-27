@@ -181,6 +181,9 @@ mitmproxy -k -s proxy.py
 
 > 我想自己编译 grasscutter，可是 archlinuxarm 源里似乎没有合适的 gradle，怎么办？
 
+有两种方法可以供您选择。
+
+1.手动安装 gradle
 输入以下命令,全部选项默认。
 
 ```bash
@@ -202,6 +205,16 @@ Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 JVM:          17.0.1 (Oracle Corporation 17.0.1+12-LTS-39)
 OS:           Linux 4.19.226-IllusionX+ aarch64
 ```
+
+2.使用 gradlew 脚本
+
+:::tip
+
+推荐使用此方法
+
+:::
+
+在 Grasscutter 项目目录下直接执行 `./gradlew jar` 即可完成自动获取 gradle 跟编译。
 
 :::info
 
