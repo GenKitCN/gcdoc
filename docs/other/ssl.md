@@ -1,6 +1,7 @@
 ---
 title: 🔒 SSL 配置
 sidebar_label: 🔒 SSL 配置
+
 ---
 
 ## 概览 {#overview}
@@ -19,11 +20,19 @@ sidebar_label: 🔒 SSL 配置
 
 ### 替换证书
 
-#### 获取域名
+#### 使用IP证书
 
-由于 IP 证书不太好申请，所以我们得先拿到个域名。
+鉴于zerossl已经开放IP证书的申请(一个账号仅限同时拥有三个未过期证书，但是账号不验证邮箱真实性),我们也可以使用IP证书
 
-和本文档相同的 `.xyz` 后缀第一年只需要 10 块甚至 9 块.可以找个国外注册商比如 namesilo 注册一个，而且国外注册商无需备案
+你可以使用诸如 `https://github.com/tinkernels/zerossl-ip-cert` 等工具来进行申请，也可以直接登录zerossl网页进行申请(在`Enter Domains`处直接输入IP即可)
+
+你也可以参考[这篇教程](https://hikami.moe/webmaster/domain/4241.html)来申请
+
+#### 使用域名证书
+
+由于 IP 证书申请相对会繁琐一点点，所以也可以考虑获取域名。
+
+比如 `.xyz` 后缀第一年只需要 10 块甚至 9 块.可以找个国外注册商比如 namesilo 注册一个，而且国外注册商无需备案
 
 如果实在没钱，可以用 [Freenom](https://www.freenom.com/zh/index.html?lang=zh) .不过 Freenom 由于滥用严重，有些服务商可能会限制这些域名可使用的服务
 
