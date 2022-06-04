@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'GenKit Wiki',
   tagline: 'Grasscutter 中文百科',
-  url: 'https://genkit.mhysb.xyz',
+  url: 'https://mihoyo-is-in.icu',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -142,7 +142,7 @@ const config = {
               },
               {
                 label: 'E-Mail',
-                href: 'mailto:chitang233@proton.me',
+                href: 'mailto:chitang@mihoyo-is-in.icu',
               },
             ],
           },
@@ -182,7 +182,7 @@ const config = {
                 attributes: {
                   async: true,
                   "data-website-id": "81a2cde9-8f24-4577-a0fc-882cb165bd4e",
-                  src: "https://genkit-umami.vercel.app/umami.js",
+                  src: "https://umami.mihoyo-is-in.icu/umami.js",
                 },
               },
             ]
