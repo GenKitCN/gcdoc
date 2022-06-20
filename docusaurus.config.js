@@ -81,6 +81,7 @@ const config = {
           {to: '/artifact', label: '👑 圣遗物在线生成', position: 'left'},
           {to: '/auth', label: '🔑 GCAuth', position: 'left'},
           {to: '/blog', label: '📰 博客', position: 'left'},
+          {to: '/awesome', label: '😎 Awesome Grasscutter', position: 'left'},
           {
             href: 'https://t.me/genkitCN_chat',
             label: '✈️ Telegram',
