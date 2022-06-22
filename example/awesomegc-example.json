@@ -1,0 +1,11 @@
+{
+    "name": "name of plugins or resources",
+    "link": "https://github.com/foo/bar",
+    "type": "plugins",
+    "author": "foo",
+    "tag": ["admin", "api"],
+    "platform": "any",
+    "description": "discription",
+    "is-archive": false,
+    "recent-update": "2022-06-20"
+}
