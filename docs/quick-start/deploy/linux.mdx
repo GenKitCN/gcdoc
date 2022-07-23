@@ -190,10 +190,10 @@ screen -r name
 
 使用 screen 创建的会话在 ssh 断连时也会保持运行
 
-#### 可选步骤：使用systemd使其开机自启
+#### 可选步骤：使用 systemd 使其开机自启
 
 ```bash title="创建进程守护文件"
-cat <<'TEXT' > /etc/systemd/system/grasscutter.service
+cat << 'TEXT' > /etc/systemd/system/grasscutter.service
 [Unit]
 Description=Grasscutter Daemon
 After=network.target
@@ -203,8 +203,8 @@ Type=simple
 User=root
 Restart=on-failure
 RestartSec=5s
-WorkingDirectory=/path/to/grasscutter
-ExecStart=/usr/bin/screen -dm -S grasscutter bash -c 'cd /path/to/grasscutter;java -jar ./grasscutter.jar;exec bash'
+WorkingDirectory=/path/to/grasscutter # 替换 /path/to/grasscutter 为正确路径
+ExecStart=/usr/bin/screen -dm -S grasscutter bash -c 'cd /path/to/grasscutter;java -jar ./grasscutter.jar;exec bash' # 替换 /path/to/grasscutter 为正确路径
 RemainAfterExit=yes
 
 [Install]
