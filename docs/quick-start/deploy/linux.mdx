@@ -190,11 +190,41 @@ screen -r name
 
 使用 screen 创建的会话在 ssh 断连时也会保持运行
 
+#### 可选步骤：使用 systemd 使其开机自启
+
+```bash title="创建进程守护文件"
+cat << 'TEXT' > /etc/systemd/system/grasscutter.service
+[Unit]
+Description=Grasscutter Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/path/to/grasscutter # 替换 /path/to/grasscutter 为正确路径
+ExecStart=/usr/bin/screen -dm -S grasscutter bash -c 'cd /path/to/grasscutter;java -jar ./grasscutter.jar;exec bash' # 替换 /path/to/grasscutter 为正确路径
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+TEXT
+```
+
+```bash title="设置开机自启"
+sudo systemctl enable --now grasscutter.service
+```
+
+注意使用`root`用户管理screen进程。
+
 :::info
 
 By [Chi_Tang](https://www.chitang.tech)
 
 运行服务器部分是 [@chitang233](https://t.me/chitang233) 基于 [@YidaozhanYa](https://t.me/YidaozhanYa) 的[文章](https://blog.yidaozhan.ga/2022/05/01/grasscutter-on-archlinux/)进行修改
+
+systemd部分由 [@qwerzl](https://github.com/qwerzl) 贡献
 
 使用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议共享
 
