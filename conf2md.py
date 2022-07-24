@@ -19,7 +19,7 @@ def get_type(data: Any) -> str:
 
 
 def sd2table(data: dict) -> str:  # single layer dict to markdown table
-    table_txt = '| 配置键 | 类型 | 默认值 |\n| ------ | ---- | ------ |\n'
+    table_txt = '\n| 配置键 | 类型 | 默认值 |\n| ------ | ---- | ------ |\n'
     table_txt += '\n'.join(f'| {i} | {get_type(data)} | {j} |' for i, j in data.items())
     return table_txt
 
