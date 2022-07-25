@@ -62,8 +62,7 @@ def item2md(key: str, value: Any, title_lvl: int = 2, parent_key: str = None) ->
         if dict not in [type(n) for m, n in value.items()]:
             block += sd2table(value)
         else:
-            for o, p in value.items():
-                block += item2md(o, p, title_lvl=title_lvl + 1, parent_key=key)
+            block += ''.join(item2md(o, p, title_lvl=title_lvl + 1, parent_key=key) for o, p in value.items())
     return block
 
 
