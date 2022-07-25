@@ -18,9 +18,13 @@ def get_type(data: Any) -> str:
         return getattr(type(data), '__name__').title()
 
 
+def clear_enter(txt: str) -> str:
+    return txt.replace('\r\n', ' ').replace('\r', '').replace('\n', ' ')
+
+
 def sd2table(data: dict) -> str:  # single layer dict to markdown table
     table_txt = '\n| 配置键 | 类型 | 默认值 |\n| ------ | ---- | ------ |\n'
-    table_txt += '\n'.join(f'| {i} | {get_type(data)} | {j} |' for i, j in data.items())
+    table_txt += '\n'.join(f'| {i} | {get_type(data)} | {clear_enter(str(j))} |' for i, j in data.items())
     return table_txt
 
 
@@ -53,11 +57,13 @@ def item2md(key: str, value: Any, title_lvl: int = 2, parent_key: str = None) ->
         block += kv_showcase(key=key, value=value, title='config.json $.{parent_key}.{key}')
     else:
         block += kv_showcase(key=key, value=value)
+    block += '\n\n'
     if isinstance(value, dict):
-        if type(dict) not in [type(n) for m, n in value.items()]:
+        if dict not in [type(n) for m, n in value.items()]:
             block += sd2table(value)
         else:
-            block += obj2md(value, title_lvl=title_lvl + 1, parent_key=key)
+            for o, p in value.items():
+                block += item2md(o, p, title_lvl=title_lvl + 1, parent_key=key)
     return block
 
 
