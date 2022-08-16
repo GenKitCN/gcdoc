@@ -188,8 +188,8 @@ const config = {
                 tagName: 'script',
                 attributes: {
                   async: true,
-                  "data-website-id": "81a2cde9-8f24-4577-a0fc-882cb165bd4e",
-                  src: "https://umami.mihoyo-is-in.icu/umami.js",
+                  "data-website-id": "1fce29b9-3ad3-4783-a8da-ac3096c4fc0e",
+                  src: "https://umami.chitang.dev/umami.js",
                 },
               },
             ]
