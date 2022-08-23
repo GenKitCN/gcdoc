@@ -16,6 +16,12 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 $ yarn
 ```
 
+### push前请看
+### See before you push
+若您想为我们的项目作出贡献，建议您push后在提交pr之前先在actions中查看测试是否通过(如果你在文档里添加了格式化代码或更改了代码文件)，若有需要，请在actions中手动构建查看文档是否达到自己的预期，别像我一样狼狈地删pr
+
+If you want to contribute to our project, we recommend that you to see if the test is passed in actions before starting pr(If you have added formatting codes or changed the code file in the document), if necessary, please build manually in actions to see if the documentation meets your expectations, do not delete pr in a difficult position like I did
+
 ### Local Development
 ### 本地开发
 
