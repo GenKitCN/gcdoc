@@ -21,4 +21,5 @@ yarn-error.log*
 
 .idea
 .vercel
+.github
 package-lock.json

@@ -1,0 +1,24 @@
+name: 构建
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install Dependencies
+      run: yarn
+    - name: Build
+      run: yarn build
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: gcdoc-web
+        path: build
