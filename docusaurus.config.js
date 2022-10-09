@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'GenKit Wiki',
-  tagline: 'Grasscutter 中文百科',
-  url: 'https://mihoyo-is-in.icu',
+  tagline: '一个 Grasscutter 的非官方中文百科',
+  url: 'https://wiki.genkit.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -71,29 +71,38 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs:
+        {
+          sidebar:
+            {
+              hideable: true,
+            }
+        },
       navbar: {
         title: 'GenKit',
         logo: {
-          alt: 'Grasscutter',
+          alt: 'Grasscutter Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'about',
+            docId: 'intro',
             position: 'left',
-            label: '📃 文档',
+            label: '文档',
           },
-          {to: '/artifact', label: '👑 圣遗物在线生成', position: 'left'},
-          {to: '/auth', label: '🔑 GCAuth', position: 'left'},
-          {to: '/blog', label: '📰 博客', position: 'left'},
-          {to: '/awesome', label: '😎 Awesome Grasscutter', position: 'left'},
+          {to: '/artifact', label: '圣遗物在线生成', position: 'left'},
+          //{to: '/auth', label: '🔑 GCAuth', position: 'left'},
+          //{to: 'https://blog.genkit.org', label: '博客', position: 'left'},
+          {to: '/awesome', label: '资源索引', position: 'left'},
+          {to: 'https://file.genkit.org', label: '资源站', position: 'left'},
           {
-            href: 'https://t.me/genkitCN_chat',
-            label: '✈️ Telegram',
+            href: 'https://genkitCN.t.me',
+            label: 'Telegram',
             position: 'right',
           },
         ],
+        hideOnScroll: true,
       },
       footer: {
         style: 'dark',
@@ -102,16 +111,16 @@ const config = {
             title: '文档',
             items: [
               {
-                label: '🏃‍ 快速开始',
-                to: '/docs/quick-start/get-server',
+                label: '🚜‍ 快速开始',
+                to: '/docs',
               },
               {
-                label: '✅ 关于',
+                label: '🏷️ 关于',
                 to: '/docs/about',
               },
               {
                 label: '❓ FAQ',
-                to: '/docs/faq/error-4206',
+                to: '/docs/faq/index',
               },
             ],
           },
@@ -119,7 +128,7 @@ const config = {
             title: '交流',
             items: [
               {
-                label: '✈️ Telegram 发布频道',
+                label: '✈️ Telegram 频道',
                 href: 'https://t.me/genkitCN',
               },
               {
@@ -127,8 +136,8 @@ const config = {
                 href: 'https://t.me/genkitCN_chat',
               },
               {
-                label: '👥 Telegram 讨论组(人多|临时)',
-                href: 'https://t.me/genshinhelper',
+                label: '👥 E Mail',
+                href: 'mailto:i@genkit.org',
               }
             ],
           },
@@ -136,25 +145,21 @@ const config = {
             title: '更多',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'Grasscutter GitHub',
                 href: 'https://github.com/Grasscutters/Grasscutter',
               },
               {
-                label: 'GenKitCN GitHub',
+                label: 'GenKit GitHub',
                 href: 'https://github.com/GenKitCN',
               },
               {
-                label: 'E-Mail',
-                href: 'mailto:chitang@mihoyo-is-in.icu',
-              },
+                label: 'GenKit 资源站',
+                to: 'https://file.genkit.org',
+              }
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} GenKit 版权所有。基于 Docusaurus 构建。`,
+        copyright: `Powered by Docusaurus | © 2022-${new Date().getFullYear()} <a style='color:white' href="htps://genkit.org">GenKit</a>`,
       },
       prism: {
         theme: lightCodeTheme,
