@@ -1,0 +1,155 @@
+---
+title: 📥 获取服务端
+sidebar_label: 📥 获取服务端
+---
+
+:::info
+
+在进行本文中的步骤前，请先安装 [Git](https://git-scm.com/downloads)
+
+:::
+
+## 📥 获取服务端主文件
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="github" label="使用Github构建(推荐)">
+
+:::info
+
+Github构建段落作者 [@Lance](https://github.com/cnlancehu/) 
+
+使用 CC BY-SA 4.0 协议共享
+
+:::
+
+进入[Grasscutter官方仓库](https://github.com/Grasscutters/Grasscutter)
+
+点击左上角Fork，在自己账户中创建一个分支
+
+进入你创建的仓库，按如图所示顺序点击
+
+![image](https://user-images.githubusercontent.com/106385654/180453600-387a43d7-70d0-4d7b-8065-a6cd410ba81b.png)
+![image](https://user-images.githubusercontent.com/106385654/180454602-015f6c11-f9e9-4f8a-8186-d13c6662c2fb.png)
+
+一段时间后，如无意外，提示点便会由黄变绿
+
+此时，点击下图所框选的"Build"
+
+![image](https://user-images.githubusercontent.com/106385654/180461838-cc86c95b-8c70-4023-9045-3194f5eee53a.png)
+
+点击后，可见构建总览，下方出现了所构建文件的打包，即我们所需要的服务端文件
+
+![image](https://user-images.githubusercontent.com/106385654/180462513-80107202-4b8c-4696-b3b5-4d0539ef6b1b.png)
+
+点击框选处，下载获得一个压缩包，服务端就在其中
+
+</TabItem>
+<TabItem value="telegram" label="✈ 从频道获取 (推荐)">
+
+前往 [Telegram 频道](https://t.me/genkitCN)
+
+频道已经不单独发布核心了，但是有一键包，图省事的可以用。
+
+</TabItem>
+<TabItem value="build-self" label="⚒ 从源码手动编译">
+
+:::note
+
+手动编译需要安装 JDK
+
+建议前往文档对应操作系统的`环境配置`部分配置
+
+:::
+
+```bash title="获取服务端源码"
+# 稳定分支
+git clone https://github.com/Grasscutters/Grasscutter
+# 开发分支
+git clone -b development https://github.com/Grasscutters/Grasscutter
+```
+
+```bash title="进入源码目录"
+cd Grasscutter
+```
+
+```bash title="编译服务端"
+# Windows
+gradlew.bat build
+# Linux
+./gradlew build
+```
+
+</TabItem>
+</Tabs>
+
+## 🧰 补全资源
+
+
+<Tabs>
+<TabItem value="fast" label="快速安装" default>
+
+#### 📮 resources
+
+```bash
+git clone https://github.com/Koko-boya/Grasscutter_Resources.git resources
+```
+
+</TabItem>
+<TabItem value="manual" label="手动安装">
+
+:::tip
+
+请将 `<grasscutter>` 替换为您下载/编译的文件名
+
+:::
+
+### 🪤 生成资源文件夹
+
+```bash
+java -jar <grasscutter>.jar
+```
+
+### 📥 获取资源文件
+
+#### 📮 Grasscutter_Resources
+
+下载 [Grasscutter_Resources 仓库](https://github.com/Koko-boya/Grasscutter_Resources)
+
+将 `Resources` 中除 `BinOutput` 的所有部分放入 Grasscutter 文件夹中的 `resources` 中
+
+#### 📮 gi-bin-output
+
+下载 [gi-bin-output 仓库](https://github.com/spencerbonilla/gi-bin-output)
+
+将 `2.5.52/Data/_BinOutput` 文件夹重命名为 `BinOutput` 并放入 Grasscutter 文件夹中的 `resources` 中
+
+</TabItem>
+
+</Tabs>
+
+#### 🔑 Keys, Data, Keystore
+
+:::tip
+
+该步骤仅需要从频道获取的服务端进行
+
+:::
+
+下载 [Grasscutter 仓库开发分支](https://github.com/Grasscutters/Grasscutter/tree/development)
+
+将其中的 `data`, `keys` 文件夹放入 Grasscutter 文件夹中
+
+将 `keystore.p12` 文件放入 Grasscutter 文件夹中
+
+:::info
+
+By [Chi_Tang](https://www.chitang.tech)
+
+[补全资源](#补全资源)部分参考 [Grasscutter 官方 Wiki](https://github.com/Grasscutters/Grasscutter/wiki/Running#starting-the-server)
+
+使用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议共享
+
+:::
