@@ -44,6 +44,6 @@ GenKit 是一个第三方 GC 交流学习组织
 
 - ...
 
-- [SimpleName](YourHomePage)
+- [SimpleName](https://genkit.org)
 
   
